@@ -1,1 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quadratic Transformations</title>
+  <style>
+    body {
+      max-width: 700px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      font: 1.1rem/1.6 system-ui, sans-serif;
+      background: #f4f7fb;
+      color: #172033;
+    }
 
+    main {
+      padding: 2rem;
+      border-radius: 1rem;
+      background: white;
+      box-shadow: 0 4px 20px #17203318;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      margin: 0.75rem 0;
+      padding: 0.9rem;
+      border: 1px solid #9aa8bd;
+      border-radius: 0.6rem;
+      background: #fff;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    button:hover { background: #edf3ff; }
+    #feedback { min-height: 3rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <p id="progress"></p>
+    <h1 id="title"></h1>
+    <section id="scene"></section>
+    <p id="feedback" aria-live="polite"></p>
+    <button id="continue" hidden>Continue</button>
+  </main>
+
+  <script>
+    const scenes = [
+      {
+        title: "A parabola moves",
+        text: "The parent function is f(x) = x². What happens to the graph in y = x² + 3?",
+        choices: [
+          { text: "It moves up 3 units", correct: true },
+          { text: "It moves right 3 units", correct: false },
+          { text: "It becomes narrower", correct: false }
+        ],
+        explanation: "Adding 3 outside the squared expression shifts the graph up 3 units."
+      },
+      {
+        title: "Try another one",
+        text: "What happens to the graph in y = x² − 2?",
+        choices: [
+          { text: "It moves down 2 units", correct: true },
+          { text: "It moves left 2 units", correct: false },
+          { text: "It reflects over the x-axis", correct: false }
+        ],
+        explanation: "Subtracting 2 outside the squared expression shifts the graph down 2 units."
+      },
+      {
+        title: "Scene complete",
+        text: "You identified vertical shifts. In both examples, the number outside x² moved the graph up or down.",
+        choices: []
+      }
+    ];
+
+    let currentScene = 0;
+    let score = 0;
+
+    const title = document.querySelector("#title");
+    const scene = document.querySelector("#scene");
+    const progress = document.querySelector("#progress");
+    const feedback = document.querySelector("#feedback");
+    const continueButton = document.querySelector("#continue");
+
+    function showScene() {
+      const current = scenes[currentScene];
+
+      progress.textContent = `Scene ${currentScene + 1} of ${scenes.length} · Score: ${score}`;
+      title.textContent = current.title;
+      scene.replaceChildren();
+      feedback.textContent = "";
+      continueButton.hidden = true;
+
+      const prompt = document.createElement("p");
+      prompt.textContent = current.text;
+      scene.appendChild(prompt);
+
+      current.choices.forEach(choice => {
+        const button = document.createElement("button");
+        button.textContent = choice.text;
+        button.addEventListener("click", () => {
+          scene.querySelectorAll("button").forEach(item => item.disabled = true);
+
+          if (choice.correct) {
+            score += 1;
+            feedback.textContent = `Correct! ${current.explanation}`;
+          } else {
+            feedback.textContent = `Not quite. ${current.explanation}`;
+          }
+
+          continueButton.hidden = false;
+        });
+        scene.appendChild(button);
+      });
+
+      if (current.choices.length === 0) {
+        progress.textContent = `Finished · Score: ${score}`;
+      }
+    }
+
+    continueButton.addEventListener("click", () => {
+      currentScene += 1;
+      showScene();
+    });
+
+    showScene();
+  </script>
+</body>
+</html>
