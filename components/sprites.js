@@ -5,14 +5,14 @@ const Sprites = {
 
     // Returns an SVG sprite wrapped in a container div
     // mood: 'neutral' | 'happy' | 'concerned' | 'stressed' | 'sad'
-    joel(mood = 'neutral') {
+   /* joel(mood = 'neutral') {
         const wrap = Utils.createElement('div', 'sprite-wrap sprite-wrap--joel');
         const label = Utils.createElement('span', 'sprite-label', 'Joel');
         wrap.innerHTML = Sprites._joelSVG(mood);
         wrap.appendChild(label);
         return wrap;
     },
-
+*/
     michael(mood = 'neutral') {
         const wrap = Utils.createElement('div', 'sprite-wrap sprite-wrap--michael');
         const label = Utils.createElement('span', 'sprite-label', 'Michael');
@@ -37,7 +37,7 @@ const Sprites = {
     },
 
     // ── Joel SVG (taller build, darker hair) ──
-    _joelSVG(mood) {
+    /*_joelSVG(mood) {
         const face = Sprites._face(mood, '#F4C89A', '#3B2A1A');
         return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 96" width="80" height="120">
             <!-- Body -->
@@ -67,7 +67,7 @@ const Sprites = {
             <circle cx="32" cy="90" r="3" fill="#f87171" opacity="0.9"/>
         </svg>`;
     },
-
+*/
     // ── Michael SVG (slightly shorter, lighter hair) ──
     _michaelSVG(mood) {
         const face = Sprites._face(mood, '#FDDBB4', '#8B6914');
