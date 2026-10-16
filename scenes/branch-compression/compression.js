@@ -16,6 +16,9 @@ Engine.register("compression", () => createLessonScreen({
   topicId: "compression"
 }));
 
+// Compression: y = 0.5x²
+createParabolaComparison({ a: 0.5, h: 0, k: 0 });
+
 continueButton.addEventListener("click", () => {
   Router.completeTopic("compression");
 });

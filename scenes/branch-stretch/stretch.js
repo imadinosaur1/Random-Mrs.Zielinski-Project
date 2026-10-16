@@ -16,6 +16,9 @@ Engine.register("stretch", () => createLessonScreen({
   topicId: "stretch"
 }));
 
+// Stretch: y = 2x²
+createParabolaComparison({ a: 2, h: 0, k: 0 });
+
 continueButton.addEventListener("click", () => {
   Router.completeTopic("stretch");
 });
