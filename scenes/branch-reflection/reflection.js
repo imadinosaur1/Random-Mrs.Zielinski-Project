@@ -15,10 +15,3 @@ Engine.register("reflection", () => createLessonScreen({
   graph: { a: -1, h: 0, k: 0 },
   topicId: "reflection"
 }));
-
-// Reflection: y = -x²
-createParabolaComparison({ a: -1, h: 0, k: 0 });
-
-continueButton.addEventListener("click", () => {
-  Router.completeTopic("reflection");
-});

@@ -15,10 +15,3 @@ Engine.register("horizontal", () => createLessonScreen({
   graph: { a: 1, h: 3, k: 0 },
   topicId: "horizontal"
 }));
-
-// Horizontal shift: y = (x - 3)²
-createParabolaComparison({ a: 1, h: 3, k: 0 });
-
-continueButton.addEventListener("click", () => {
-  Router.completeTopic("horizontal");
-});

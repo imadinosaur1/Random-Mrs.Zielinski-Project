@@ -15,10 +15,3 @@ Engine.register("vertical", () => createLessonScreen({
   graph: { a: 1, h: 0, k: 2 },
   topicId: "vertical"
 }));
-
-// Vertical shift: y = x² + 2
-createParabolaComparison({ a: 1, h: 0, k: 2 });
-
-continueButton.addEventListener("click", () => {
-  Router.completeTopic("vertical");
-});
