@@ -35,8 +35,26 @@ const topics = [
     description: "Learn what a, h, and k do in the parabola rule.",
     sceneId: "vertex-form"
   },
+    {
+    id: "combine",
+    title: "Put it all together",
+    description: "Use a, h, and k together to understand one equation.",
+    sceneId: "combine"
+  },
 
 ];
+
+const lessonsBeforeCombine = [
+  "vertex-form",
+  "horizontal",
+  "vertical",
+  "stretch",
+  "compression",
+  "reflection"
+];
+
+const canShowCombine = () =>
+  lessonsBeforeCombine.every(topicId => State.isTopicComplete(topicId));
 
 Engine.register("hub", () => {
   const screen = Utils.createElement("main", "scene scene--hub");
@@ -71,9 +89,11 @@ Engine.register("hub", () => {
 
   const cardList = Utils.createElement("div", "choice-card-list");
 
-  topics.forEach(topic => {
-    cardList.appendChild(createChoiceCard(topic));
-  });
+   topics
+    .filter(topic => topic.id !== "combine" || canShowCombine())
+    .forEach(topic => {
+      cardList.appendChild(createChoiceCard(topic));
+    });
 
   screen.appendChild(cardList);
 

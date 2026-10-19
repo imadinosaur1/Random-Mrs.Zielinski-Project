@@ -7,7 +7,8 @@ const State = {
     "vertical",
     "stretch",
     "compression",
-    "reflection"
+    "reflection",
+    "combine"
   ],
 
   completedTopics: new Set(),
