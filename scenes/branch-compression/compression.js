@@ -1,13 +1,13 @@
 Engine.register("compression", () => createLessonScreen({
   title: "Make the U wider",
-  dialogue: [
+    dialogue: [
     {
       speaker: "joel",
-      text: "A number between 0 and 1 in front lets the sides spread out."
+      text: "The a in vertex form can also make the U-shape wider."
     },
     {
       speaker: "michael",
-      text: "That makes the parabola wider. Here, one-half is between 0 and 1."
+      text: "When a is between 0 and 1, the parabola gets wider. For example, a = 0.5 makes a wide U."
     }
   ],
   equation: "y = 0.5x²",

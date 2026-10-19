@@ -1,13 +1,13 @@
 Engine.register("stretch", () => createLessonScreen({
   title: "Make the U narrower",
-  dialogue: [
+   dialogue: [
     {
       speaker: "michael",
-      text: "A number bigger than 1 in front pulls the sides of the U inward."
+      text: "The a in vertex form changes how wide or narrow the U-shape is."
     },
     {
       speaker: "joel",
-      text: "That makes the parabola skinnier. Here, the number is 2."
+      text: "When a is bigger than 1, the parabola gets narrower. Here a is 2."
     }
   ],
   equation: "y = 2x²",

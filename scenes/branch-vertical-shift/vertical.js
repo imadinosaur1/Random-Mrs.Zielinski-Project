@@ -1,13 +1,13 @@
 Engine.register("vertical", () => createLessonScreen({
   title: "Slide up or down",
-  dialogue: [
+   dialogue: [
     {
       speaker: "joel",
-      text: "A number at the very end moves the whole graph up or down."
+      text: "The k in vertex form tells us how far the graph slides up or down."
     },
     {
       speaker: "michael",
-      text: "Add 2 to move up 2. Subtract 2 to move down 2."
+      text: "In y = x² + 2, k is 2, so the graph slides up 2 spaces. Subtracting 2 would slide it down."
     }
   ],
   equation: "y = x² + 2",

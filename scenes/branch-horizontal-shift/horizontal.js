@@ -1,13 +1,13 @@
 Engine.register("horizontal", () => createLessonScreen({
   title: "Slide left or right",
-  dialogue: [
+   dialogue: [
     {
       speaker: "michael",
-      text: "Look inside the parentheses. In (x - 3)², the graph slides right 3 spaces."
+      text: "The h in vertex form tells us how far the graph slides left or right."
     },
     {
       speaker: "joel",
-      text: "If it says (x + 3)², it slides left 3 spaces. The sign feels backward!"
+      text: "In y = (x - 3)², h is 3, so the graph slides right 3 spaces. The minus sign inside the brackets can feel backward!"
     }
   ],
   equation: "y = (x - 3)²",
