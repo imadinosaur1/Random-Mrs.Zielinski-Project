@@ -1,0 +1,31 @@
+.scene h1 {
+  margin-bottom: 1rem;
+  color: var(--purple-dark);
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  line-height: 1.15;
+}
+
+.scene h2 {
+  margin-bottom: 0.35rem;
+  color: var(--teal);
+  font-size: 1.35rem;
+}
+
+.scene--hub > p {
+  color: var(--muted);
+}
+
+.choice-card__complete {
+  margin-top: 0.25rem;
+  color: #176b43;
+  font-weight: 700;
+}
+
+.answer-feedback {
+  min-height: 3rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background: var(--teal-pale);
+  color: var(--ink);
+  font-weight: 600;
+}
