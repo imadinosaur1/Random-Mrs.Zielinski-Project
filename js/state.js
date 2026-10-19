@@ -2,6 +2,7 @@ const State = {
   currentScene: null,
 
   topicIds: [
+    "vertex-form",
     "horizontal",
     "vertical",
     "stretch",

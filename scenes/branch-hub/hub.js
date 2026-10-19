@@ -28,7 +28,14 @@ const topics = [
     title: "Flip it upside down",
     description: "Learn what a negative number in front does.",
     sceneId: "reflection"
-  }
+  },
+  {
+    id: "vertex-form",
+    title: "Meet vertex form",
+    description: "Learn what a, h, and k do in the parabola rule.",
+    sceneId: "vertex-form"
+  },
+
 ];
 
 Engine.register("hub", () => {
