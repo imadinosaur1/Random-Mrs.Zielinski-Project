@@ -85,6 +85,10 @@ Engine.register("outro", () => {
     ? "See your results"
     : "Next question";
 
+        nextButton.textContent =
+          questionIndex === questions.length - 1
+            ? "See your results"
+            : "Next question";
         nextButton.hidden = false;
       });
 
