@@ -1,0 +1,44 @@
+:root {
+  --ink: #25324a;
+  --muted: #52627b;
+  --page: #f3f7ff;
+  --paper: #ffffff;
+  --purple: #6741d9;
+  --purple-dark: #4c2bb5;
+  --purple-pale: #f0ebff;
+  --teal: #087e8b;
+  --teal-pale: #e3f8f7;
+  --yellow: #ffd166;
+  --border: #d9e1ef;
+  --shadow: 0 12px 30px rgb(37 50 74 / 10%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem 1rem;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 12%, #fff1bd 0 5rem, transparent 5.1rem),
+    radial-gradient(circle at 92% 80%, #d8f4f1 0 7rem, transparent 7.1rem),
+    var(--page);
+  font-family: system-ui, "Segoe UI", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+button {
+  color: inherit;
+  font: inherit;
+}
+
+h1,
+h2,
+p,
+figure {
+  margin-top: 0;
+}
