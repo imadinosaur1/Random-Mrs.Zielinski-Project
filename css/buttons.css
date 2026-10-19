@@ -1,0 +1,82 @@
+.button,
+.choice-card,
+.answer-choice {
+  border: 2px solid var(--purple);
+  border-radius: 0.9rem;
+  background: white;
+  cursor: pointer;
+  transition: transform 140ms ease, background-color 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.button,
+.answer-choice {
+  display: block;
+  width: 100%;
+  margin: 0.75rem 0;
+  padding: 0.85rem 1rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.button {
+  color: white;
+  background: var(--purple);
+}
+
+.button:hover,
+.button--final:hover {
+  background: var(--purple-dark);
+}
+
+.button--final {
+  border-color: var(--teal);
+  background: var(--teal);
+}
+
+.choice-card {
+  display: flex;
+  min-height: 120px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  padding: 1rem;
+  text-align: left;
+}
+
+.choice-card:hover,
+.answer-choice:hover {
+  background: var(--purple-pale);
+}
+
+.choice-card__title {
+  color: var(--purple-dark);
+  font-size: 1.1rem;
+}
+
+.choice-card__description,
+.choice-card__complete {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.answer-choice {
+  color: var(--ink);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgb(37 50 74 / 12%);
+}
+
+button:focus-visible {
+  outline: 4px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 0.7;
+  transform: none;
+  box-shadow: none;
+}
