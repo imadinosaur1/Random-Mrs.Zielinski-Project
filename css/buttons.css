@@ -56,7 +56,7 @@
 
 .choice-card__description,
 .choice-card__complete {
-  color: var(--muted);
+  color: var(--card);
   font-size: 0.95rem;
 }
 
