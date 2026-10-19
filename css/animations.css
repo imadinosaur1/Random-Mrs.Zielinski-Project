@@ -1,0 +1,46 @@
+.scene {
+  animation: scene-appear 300ms ease-out both;
+}
+
+.dialogue-turn {
+  animation: dialogue-appear 250ms ease-out both;
+}
+
+.dialogue-turn:nth-of-type(2) {
+  animation-delay: 100ms;
+}
+
+@keyframes scene-appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dialogue-appear {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
