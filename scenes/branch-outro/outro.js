@@ -80,15 +80,12 @@ Engine.register("outro", () => {
             `Good try! The answer is “${question.answers[question.correct]}.” ${question.explanation}`;
         }
 
-        nextButton.textContent =
-  questionIndex === questions.length - 1
-    ? "See your results"
-    : "Next question";
+          if (questionIndex === questions.length - 1) {
+          nextButton.textContent = "See your results";
+        } else {
+          nextButton.textContent = "Next question";
+        }
 
-        nextButton.textContent =
-          questionIndex === questions.length - 1
-            ? "See your results"
-            : "Next question";
         nextButton.hidden = false;
       });
 
