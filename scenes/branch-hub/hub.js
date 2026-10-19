@@ -41,6 +41,12 @@ const topics = [
     description: "Use a, h, and k together to understand one equation.",
     sceneId: "combine"
   },
+   {
+    id: "axis-symmetry",
+    title: "Find the line of symmetry",
+    description: "Find the line through the middle of the parabola.",
+    sceneId: "axis-symmetry"
+  },
 
 ];
 
@@ -50,7 +56,8 @@ const lessonsBeforeCombine = [
   "vertical",
   "stretch",
   "compression",
-  "reflection"
+  "reflection",
+  "axis-symmetry"
 ];
 
 const canShowCombine = () =>
