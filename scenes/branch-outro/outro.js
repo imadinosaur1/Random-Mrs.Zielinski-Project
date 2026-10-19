@@ -35,6 +35,39 @@ Engine.register("outro", () => {
       correct: 2,
       explanation:
         "A negative number in front of x² flips the parabola upside down."
+    },
+     {
+      prompt: "Which equation is written in vertex form?",
+      answers: [
+        "y = 2(x - 1)² + 3",
+        "y = 2x + 3",
+        "y = x² + 1"
+      ],
+      correct: 0,
+      explanation:
+        "Vertex form looks like y = a(x - h)² + k. The squared parentheses and the numbers around them help show how the parabola changes."
+    },
+    {
+      prompt: "In y = 2(x - 1)² + 3, what are a, h, and k?",
+      answers: [
+        "a = 2, h = 1, k = 3",
+        "a = 1, h = 2, k = 3",
+        "a = 3, h = 1, k = 2"
+      ],
+      correct: 0,
+      explanation:
+        "In y = a(x - h)² + k, a is in front of the parentheses, h is inside the parentheses, and k is at the end."
+    },
+    {
+      prompt: "In y = (x + 4)² - 2, what are h and k?",
+      answers: [
+        "h = 4, k = 2",
+        "h = -4, k = -2",
+        "h = -2, k = 4"
+      ],
+      correct: 1,
+      explanation:
+        "The plus 4 inside the parentheses means h = -4, because the sign inside works backward. The -2 at the end means k = -2."
     }
   ];
 
