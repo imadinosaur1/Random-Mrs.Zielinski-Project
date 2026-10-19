@@ -1,5 +1,10 @@
 function createChoiceCard(topic) {
   const card = Utils.createElement("button", "choice-card");
+
+if (topic.id === "combine") {
+  card.classList.add("choice-card--wide");
+}
+
   card.type = "button";
 
   const title = Utils.createElement("strong", "choice-card__title", topic.title);
