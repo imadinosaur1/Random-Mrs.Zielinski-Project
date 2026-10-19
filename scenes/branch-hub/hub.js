@@ -33,12 +33,34 @@ const topics = [
 
 Engine.register("hub", () => {
   const screen = Utils.createElement("main", "scene scene--hub");
+
   screen.appendChild(
     Utils.createElement("h1", "", "Where should we explore next?")
   );
-  screen.appendChild(
-    Utils.createElement("p", "", "Choose a topic. You can come back here anytime.")
-  );
+
+  const dialogue = [
+    {
+      speaker: "joel",
+      mood: "happy",
+      text: "Welcome to Parabola Park! Each card is a math adventure."
+    },
+    {
+      speaker: "michael",
+      mood: "happy",
+      text: "Pick any topic you like. We’ll explain it and show how the graph changes."
+    }
+  ];
+
+  dialogue.forEach(turn => {
+    const row = Utils.createElement("div", "dialogue-turn");
+    row.appendChild(Sprites[turn.speaker](turn.mood));
+
+    const bubble = Utils.createElement("div", "speech-bubble");
+    bubble.appendChild(Utils.createElement("p", "", turn.text));
+
+    row.appendChild(bubble);
+    screen.appendChild(row);
+  });
 
   const cardList = Utils.createElement("div", "choice-card-list");
 
