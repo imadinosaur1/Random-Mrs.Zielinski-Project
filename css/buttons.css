@@ -41,6 +41,11 @@
   align-items: flex-start;
   gap: 0.35rem;
   padding: 1rem;
+  border: 2px solid #6741D9;
+  border-radius: 0.9rem;
+  background: #F8FAFC;
+  color: #25324A;
+  cursor: pointer;
   text-align: left;
 }
 
@@ -54,12 +59,15 @@
   font-size: 1.1rem;
 }
 
-.choice-card__description,
-.choice-card__complete {
-  color: var(--muted);
+.choice-card__description {
+  color: #52627B;
   font-size: 0.95rem;
 }
 
+.choice-card__complete {
+  color: #176B43;
+  font-size: 0.95rem;
+}
 
 .answer-choice {
   color: var(--ink);
