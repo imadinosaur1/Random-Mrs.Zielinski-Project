@@ -1,92 +1,108 @@
 Engine.register("outro", () => {
-  const screen = Utils.createElement("main", "scene");
-  let questionIndex = 0;
-  let score = 0;
-
   const questions = [
     {
-      text: "In y = (x - 4)², which way does the graph move?",
-      choices: ["Right 4", "Left 4", "Up 4"],
-      answer: 0,
-      explanation: "x - 4 moves the graph right 4."
+      prompt: "In y = (x - 3)², which way does the graph move?",
+      answers: [
+        "Right 3 units",
+        "Left 3 units",
+        "Up 3 units"
+      ],
+      correct: 0,
+      explanation: "You got it! The number inside the brackets moves the graph sideways. (x - 3)² shifts it right 3 units."
     },
     {
-      text: "In y = x² - 3, which way does the graph move?",
-      choices: ["Up 3", "Down 3", "Right 3"],
-      answer: 1,
-      explanation: "Subtracting 3 at the end moves the graph down 3."
+      prompt: "In y = x² + 2, which way does the graph move?",
+      answers: [
+        "Down 2 units",
+        "Up 2 units",
+        "Right 2 units"
+      ],
+      correct: 1,
+      explanation: "Exactly! The number added outside x² moves the graph up or down. Adding 2 shifts it up 2 units."
     },
     {
-      text: "What does y = 3x² do to the U-shape?",
-      choices: ["Makes it narrower", "Makes it wider", "Flips it down"],
-      answer: 0,
-      explanation: "3 is bigger than 1, so the graph gets narrower."
+      prompt: "What does the 2 in y = 2x² do?",
+      answers: [
+        "Makes the graph narrower",
+        "Moves it right",
+        "Flips it upside down"
+      ],
+      correct: 0,
+      explanation: "That’s right! A number bigger than 1 in front of x² makes the parabola narrower."
     },
     {
-      text: "What does y = 0.5x² do to the U-shape?",
-      choices: ["Makes it narrower", "Makes it wider", "Moves it right"],
-      answer: 1,
-      explanation: "0.5 is between 0 and 1, so the graph gets wider."
-    },
-    {
-      text: "Which way does y = -x² open?",
-      choices: ["Up", "Down", "Sideways"],
-      answer: 1,
-      explanation: "The minus sign flips the parabola so it opens down."
+      prompt: "What does the negative sign in y = -x² do?",
+      answers: [
+        "Moves it down 1 unit",
+        "Makes it wider",
+        "Flips it upside down"
+      ],
+      correct: 2,
+      explanation: "Correct! A negative number in front of x² flips the parabola upside down."
     }
   ];
 
+  let questionIndex = 0;
+  let score = 0;
+
+  const screen = Utils.createElement("main", "scene scene--outro");
+  const title = Utils.createElement("h1", "", "Final Challenge");
+  const prompt = Utils.createElement("p", "challenge__prompt");
+  const answers = Utils.createElement("div", "challenge__answers");
+  const feedback = Utils.createElement("p", "challenge__feedback");
+  const nextButton = Utils.createElement("button", "button", "Next question");
+
+  screen.append(title, prompt, answers, feedback);
+  nextButton.hidden = true;
+  screen.appendChild(nextButton);
+
   function showQuestion() {
-    screen.replaceChildren();
-
-    if (questionIndex >= questions.length) {
-      screen.appendChild(Sprites.both("happy", "happy"));
-      screen.appendChild(Utils.createElement("h1", "", "Great exploring!"));
-      screen.appendChild(
-        Utils.createElement("p", "", `You got ${score} out of ${questions.length} questions right.`)
-      );
-      screen.appendChild(
-        Utils.createElement("p", "", "You learned how parabolas slide, change width, and flip.")
-      );
-      return;
-    }
-
     const question = questions[questionIndex];
-    screen.appendChild(Utils.createElement("h1", "", `Final Challenge: ${questionIndex + 1} of ${questions.length}`));
-    screen.appendChild(Utils.createElement("p", "", question.text));
 
-    const feedback = Utils.createElement("p", "answer-feedback");
-    const nextButton = Utils.createElement("button", "button", "Next question");
+    prompt.textContent = `Question ${questionIndex + 1} of ${questions.length}: ${question.prompt}`;
+    answers.replaceChildren();
+    feedback.textContent = "";
     nextButton.hidden = true;
-    nextButton.addEventListener("click", () => {
-      questionIndex += 1;
-      showQuestion();
-    });
 
-    question.choices.forEach((choice, choiceIndex) => {
-      const answerButton = Utils.createElement("button", "answer-choice", choice);
+    question.answers.forEach((answer, index) => {
+      const button = Utils.createElement("button", "answer-choice", answer);
 
-      answerButton.addEventListener("click", () => {
-        screen.querySelectorAll(".answer-choice").forEach(button => {
-          button.disabled = true;
+      button.addEventListener("click", () => {
+        answers.querySelectorAll("button").forEach(item => {
+          item.disabled = true;
         });
 
-        if (choiceIndex === question.answer) {
+        if (index === question.correct) {
           score += 1;
-          feedback.textContent = `That's right! ${question.explanation}`;
+          feedback.textContent = `Great job! ${question.explanation}`;
         } else {
-          feedback.textContent = question.explanation;
+          feedback.textContent =
+            `Good try! The answer is “${question.answers[question.correct]}.” ${question.explanation}`;
         }
 
         nextButton.hidden = false;
       });
 
-      screen.appendChild(answerButton);
+      answers.appendChild(button);
     });
-
-    screen.appendChild(feedback);
-    screen.appendChild(nextButton);
   }
+
+  nextButton.addEventListener("click", () => {
+    questionIndex += 1;
+
+    if (questionIndex < questions.length) {
+      showQuestion();
+    } else {
+      title.textContent = "Challenge complete!";
+      prompt.textContent = `You scored ${score} out of ${questions.length}.`;
+      answers.replaceChildren();
+      feedback.textContent =
+        score === questions.length
+          ? "Amazing work—you mastered these transformations!"
+          : "Nice work exploring transformations. You can revisit any topic to practice more.";
+      nextButton.hidden = true;
+    }
+  });
 
   showQuestion();
   return screen;
