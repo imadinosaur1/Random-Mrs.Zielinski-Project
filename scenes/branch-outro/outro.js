@@ -80,6 +80,11 @@ Engine.register("outro", () => {
             `Good try! The answer is “${question.answers[question.correct]}.” ${question.explanation}`;
         }
 
+        nextButton.textContent =
+  questionIndex === questions.length - 1
+    ? "See your results"
+    : "Next question";
+
         nextButton.hidden = false;
       });
 
@@ -98,8 +103,8 @@ Engine.register("outro", () => {
       answers.replaceChildren();
       feedback.textContent =
         score === questions.length
-          ? "Amazing work—you mastered these transformations!"
-          : "Nice work exploring transformations. You can revisit any topic to practice more.";
+          ? "Amazing work—you mastered these transformations! You can revisit any topic from the hub."
+          : "Nice work exploring transformations! You can revisit any topic from the hub and practice more.";
       nextButton.hidden = true;
     }
   });
