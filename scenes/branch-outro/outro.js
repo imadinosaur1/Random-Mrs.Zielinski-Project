@@ -68,6 +68,42 @@ Engine.register("outro", () => {
       correct: 1,
       explanation:
         "The plus 4 inside the parentheses means h = -4, because the sign inside works backward. The -2 at the end means k = -2."
+    },
+      {
+      prompt: "Compare the purple graph with the dashed gray parent graph. What changed?",
+      graph: { a: 1, h: 2, k: 0 },
+      answers: [
+        "It moved right 2 units",
+        "It moved up 2 units",
+        "It became narrower"
+      ],
+      correct: 0,
+      explanation:
+        "The purple graph moved right 2 units. The h value is 2."
+    },
+    {
+      prompt: "What happened to the purple graph?",
+      graph: { a: 1, h: 0, k: -3 },
+      answers: [
+        "It moved down 3 units",
+        "It moved left 3 units",
+        "It flipped upside down"
+      ],
+      correct: 0,
+      explanation:
+        "The purple graph moved down 3 units. The k value is -3."
+    },
+    {
+      prompt: "How is the purple graph different from the dashed gray parent graph?",
+      graph: { a: 2, h: 0, k: 0 },
+      answers: [
+        "It is narrower",
+        "It is wider",
+        "It moved right 2 units"
+      ],
+      correct: 0,
+      explanation:
+        "The purple graph is narrower because a = 2, which is bigger than 1."
     }
   ];
 
@@ -81,8 +117,9 @@ Engine.register("outro", () => {
   const answers = Utils.createElement("div", "challenge__answers");
   const feedback = Utils.createElement("p", "challenge__feedback");
   const nextButton = Utils.createElement("button", "button", "Next question");
+  const questionGraph = Utils.createElement("div", "challenge__graph");
 
-  screen.append(title, prompt, answers, feedback, nextButton);
+  screen.append(title, prompt, answers, feedback, nextButton, questionGraph);
 
   function showQuestion() {
     const question = questions[questionIndex];
@@ -90,6 +127,9 @@ Engine.register("outro", () => {
     prompt.textContent =
       `Question ${questionIndex + 1} of ${questions.length}: ${question.prompt}`;
     answers.replaceChildren();
+    if (question.graph) {
+  questionGraph.appendChild(createParabolaComparison(question.graph));
+}
     feedback.textContent = "";
     nextButton.hidden = true;
 
