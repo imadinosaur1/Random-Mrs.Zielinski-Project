@@ -92,23 +92,29 @@ Engine.register("outro", () => {
     });
   }
 
-  nextButton.addEventListener("click", () => {
-  if (nextButton.textContent === "See your results") {
-    title.textContent = "Challenge complete!";
-    prompt.textContent = `You scored ${score} out of ${questions.length}.`;
-    answers.replaceChildren();
-    feedback.textContent =
-      score === questions.length
-        ? "Amazing work—you mastered these transformations! You can revisit any topic."
-        : "Nice work exploring transformations! You can revisit any topic and practice more.";
+   nextButton.addEventListener("click", () => {
+    if (nextButton.textContent === "See your results") {
+      title.textContent = "Challenge complete!";
+      prompt.textContent = `You scored ${score} out of ${questions.length}.`;
+      answers.replaceChildren();
+      feedback.textContent =
+        score === questions.length
+          ? "Amazing work—you mastered these transformations! You can revisit any topic."
+          : "Nice work exploring transformations! You can revisit any topic and practice more.";
 
-    nextButton.textContent = "Return to the hub";
-    nextButton.hidden = false;
-    nextButton.onclick = () => Router.navigate("hub");
-    return;
-  }
-});
+      nextButton.textContent = "Return to the hub";
+      return;
+    }
 
-  questionIndex += 1;
+    if (nextButton.textContent === "Return to the hub") {
+      Router.navigate("hub");
+      return;
+    }
+
+    questionIndex += 1;
+    showQuestion();
+  });
+
   showQuestion();
+  return screen;
 });
