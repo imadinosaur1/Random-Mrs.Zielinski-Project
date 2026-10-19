@@ -1,13 +1,13 @@
 Engine.register("reflection", () => createLessonScreen({
   title: "Flip it upside down",
-  dialogue: [
+   dialogue: [
     {
       speaker: "michael",
-      text: "A minus sign in front flips the parabola over the x-axis."
+      text: "The a in vertex form also controls which way the parabola opens."
     },
     {
       speaker: "joel",
-      text: "The U opens down instead of up. The vertex stays in the same place."
+      text: "When a is negative, the parabola flips upside down. Here, a = -1."
     }
   ],
   equation: "y = -x²",
