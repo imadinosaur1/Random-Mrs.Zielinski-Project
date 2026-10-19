@@ -13,13 +13,17 @@ Engine.register("combine", () => createLessonScreen({
       speaker: "joel",
       text: "The k is 3, so it slides up 3. That puts the vertex at (1, 3)!"
     },
+      {
+      speaker: "joel",
+      text: "The vertex is (1, 3). The axis of symmetry is x = 1, the line through the vertex that splits the parabola into two matching sides."
+    },
     {
       speaker: "michael",
       text: "Look at the graph: all three changes happen together."
     }
   ],
   equation: "y = 2(x - 1)² + 3",
-  takeaway: "a = 2 makes it narrower; h = 1 moves it right 1; k = 3 moves it up 3. The vertex is (1, 3).",
+  takeaway: "a = 2 makes it narrower; h = 1 moves it right 1; k = 3 moves it up 3. The vertex is (1, 3), amd the axis of symmetry is x = 1.",
   graph: { a: 2, h: 1, k: 3 },
   topicId: "combine"
 }));
