@@ -94,3 +94,13 @@
     height: auto;
   }
 }
+
+.graph-comparison svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: #fbfcff;
+}
