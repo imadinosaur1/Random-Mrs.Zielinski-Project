@@ -8,7 +8,8 @@ const State = {
     "stretch",
     "compression",
     "reflection",
-    "combine"
+    "combine",
+    "axis-symmetry"
   ],
 
   completedTopics: new Set(),
