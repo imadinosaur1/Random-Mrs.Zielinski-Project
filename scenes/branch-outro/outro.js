@@ -104,6 +104,29 @@ Engine.register("outro", () => {
       correct: 0,
       explanation:
         "The purple graph is narrower because a = 2, which is bigger than 1."
+    },
+      {
+      prompt: "Which vertical line would split this parabola into two matching halves?",
+      graph: { a: 1, h: 2, k: 0 },
+      answers: ["x = 2", "x = 0", "y = 2"],
+      correct: 0,
+      explanation:
+        "The axis of symmetry goes through the vertex. This parabola’s vertex is at x = 2, so its axis is x = 2."
+    },
+    {
+      prompt: "Look at the graph. What is its axis of symmetry?",
+      graph: { a: 2, h: -3, k: -1 },
+      answers: ["x = 3", "x = -3", "y = -1"],
+      correct: 1,
+      explanation:
+        "The axis is x = h. Here h = -3, so the axis of symmetry is x = -3."
+    },
+    {
+      prompt: "In vertex form, y = a(x - h)² + k, what is the axis of symmetry?",
+      answers: ["x = h", "y = k", "x = a"],
+      correct: 0,
+      explanation:
+        "The axis of symmetry is the vertical line x = h. It passes through the vertex and divides the parabola into two matching sides."
     }
   ];
 
