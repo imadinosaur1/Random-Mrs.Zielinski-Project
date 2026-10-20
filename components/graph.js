@@ -138,7 +138,8 @@ function createParabolaComparison({
 
   figure.appendChild(svg);
 
-   legend.textContent = showAxisOfSymmetry
+   const legend = Utils.createElement("figcaption", "graph-legend");
+  legend.textContent = showAxisOfSymmetry
     ? "Dashed gray: y = x² · Purple: changed graph · Gold dot: vertex · Dashed red: axis of symmetry"
     : "Dashed gray: y = x² · Purple: changed graph · Gold dot: vertex";
   figure.appendChild(legend);
