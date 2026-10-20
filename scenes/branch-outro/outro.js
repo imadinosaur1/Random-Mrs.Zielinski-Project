@@ -150,6 +150,7 @@ Engine.register("outro", () => {
     prompt.textContent =
       `Question ${questionIndex + 1} of ${questions.length}: ${question.prompt}`;
     answers.replaceChildren();
+    questionGraph.replaceChildren();
     if (question.graph) {
   questionGraph.appendChild(createParabolaComparison(question.graph));
 }
