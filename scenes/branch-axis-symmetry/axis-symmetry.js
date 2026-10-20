@@ -20,6 +20,6 @@ Engine.register("axis-symmetry", () => createLessonScreen({
   ],
   equation: "y = (x - 2)² · Axis of symmetry: x = 2",
   takeaway: "The axis of symmetry runs through the vertex and splits the parabola into two matching sides.",
-  graph: { a: 1, h: 2, k: 0 },
+ graph: { a: 1, h: 2, k: 0, showAxisOfSymmetry: true },
   topicId: "axis-symmetry"
 }));
