@@ -104,3 +104,21 @@
   border-radius: 1rem;
   background: #fbfcff;
 }
+
+.choice-card--new {
+  border: 3px solid #f2a900;
+  background: #fff7d6;
+  box-shadow: 0 0 0 3px #f2a90033;
+}
+
+.choice-card__new {
+  align-self: flex-start;
+  margin-bottom: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: #f2a900;
+  color: #172033;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
