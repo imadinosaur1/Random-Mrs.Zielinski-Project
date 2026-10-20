@@ -107,7 +107,7 @@ Engine.register("outro", () => {
     },
       {
       prompt: "Which vertical line would split this parabola into two matching halves?",
-      graph: { a: 1, h: 2, k: 0 },
+      graph: { a: 1, h: 2, k: 0, showAxisOfSymmetry: true },
       answers: ["x = 2", "x = 0", "y = 2"],
       correct: 0,
       explanation:
@@ -115,7 +115,7 @@ Engine.register("outro", () => {
     },
     {
       prompt: "Look at the graph. What is its axis of symmetry?",
-      graph: { a: 2, h: -3, k: -1 },
+     graph: { a: 2, h: -3, k: -1, showAxisOfSymmetry: true },
       answers: ["x = 3", "x = -3", "y = -1"],
       correct: 1,
       explanation:

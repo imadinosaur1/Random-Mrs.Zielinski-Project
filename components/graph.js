@@ -1,6 +1,11 @@
 let graphNumber = 0;
 
-function createParabolaComparison({ a = 1, h = 0, k = 0 } = {}) {
+function createParabolaComparison({
+  a = 1,
+  h = 0,
+  k = 0,
+  showAxisOfSymmetry = false
+} = {}) {
   const figure = Utils.createElement("figure", "graph-comparison");
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   const ns = "http://www.w3.org/2000/svg";
@@ -99,6 +104,17 @@ function createParabolaComparison({ a = 1, h = 0, k = 0 } = {}) {
 
   addCurve(1, 0, 0, "#64748b", true); // Parent graph: y = x²
   addCurve(a, h, k, "#7c3aed");       // Transformed graph
+  if (showAxisOfSymmetry && h >= xMin && h <= xMax) {
+    const axisLine = document.createElementNS(ns, "line");
+    axisLine.setAttribute("x1", xToPixel(h));
+    axisLine.setAttribute("y1", plot.top);
+    axisLine.setAttribute("x2", xToPixel(h));
+    axisLine.setAttribute("y2", plot.bottom);
+    axisLine.setAttribute("stroke", "#e11d48");
+    axisLine.setAttribute("stroke-width", "2");
+    axisLine.setAttribute("stroke-dasharray", "6 5");
+    svg.appendChild(axisLine);
+  }
 
   // Mark the transformed vertex when it falls inside the plotting area.
   if (h >= xMin && h <= xMax && k >= yMin && k <= yMax) {
@@ -122,8 +138,9 @@ function createParabolaComparison({ a = 1, h = 0, k = 0 } = {}) {
 
   figure.appendChild(svg);
 
-  const legend = Utils.createElement("figcaption", "graph-legend");
-  legend.textContent = "Dashed gray: y = x² · Purple: changed graph · Gold dot: vertex";
+   legend.textContent = showAxisOfSymmetry
+    ? "Dashed gray: y = x² · Purple: changed graph · Gold dot: vertex · Dashed red: axis of symmetry"
+    : "Dashed gray: y = x² · Purple: changed graph · Gold dot: vertex";
   figure.appendChild(legend);
 
   return figure;
