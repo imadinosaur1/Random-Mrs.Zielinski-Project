@@ -23,7 +23,7 @@ Engine.register("combine", () => createLessonScreen({
     }
   ],
   equation: "y = 2(x - 1)² + 3",
-  takeaway: "a = 2 makes it narrower; h = 1 moves it right 1; k = 3 moves it up 3. The vertex is (1, 3), amd the axis of symmetry is x = 1.",
-  graph: { a: 2, h: 1, k: 3 },
+  takeaway: "a = 2 makes it narrower; h = 1 moves it right 1; k = 3 moves it up 3. The vertex is (1, 3), and the axis of symmetry is x = 1.",
+  graph: { a: 2, h: 1, k: 3, showAxisOfSymmetry: true },
   topicId: "combine"
 }));
